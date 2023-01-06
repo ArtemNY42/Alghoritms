@@ -1,0 +1,15 @@
+E:\Training\Alghoritms\bin\Debug\net6.0\Alghoritms.exe
+E:\Training\Alghoritms\bin\Debug\net6.0\Alghoritms.deps.json
+E:\Training\Alghoritms\bin\Debug\net6.0\Alghoritms.runtimeconfig.json
+E:\Training\Alghoritms\bin\Debug\net6.0\Alghoritms.dll
+E:\Training\Alghoritms\bin\Debug\net6.0\Alghoritms.pdb
+E:\Training\Alghoritms\obj\Debug\net6.0\Alghoritms.csproj.AssemblyReference.cache
+E:\Training\Alghoritms\obj\Debug\net6.0\Alghoritms.GeneratedMSBuildEditorConfig.editorconfig
+E:\Training\Alghoritms\obj\Debug\net6.0\Alghoritms.AssemblyInfoInputs.cache
+E:\Training\Alghoritms\obj\Debug\net6.0\Alghoritms.AssemblyInfo.cs
+E:\Training\Alghoritms\obj\Debug\net6.0\Alghoritms.csproj.CoreCompileInputs.cache
+E:\Training\Alghoritms\obj\Debug\net6.0\Alghoritms.dll
+E:\Training\Alghoritms\obj\Debug\net6.0\refint\Alghoritms.dll
+E:\Training\Alghoritms\obj\Debug\net6.0\Alghoritms.pdb
+E:\Training\Alghoritms\obj\Debug\net6.0\Alghoritms.genruntimeconfig.cache
+E:\Training\Alghoritms\obj\Debug\net6.0\ref\Alghoritms.dll

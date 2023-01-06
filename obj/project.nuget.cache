@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "An6bBgAzVdRaMDOPq0aESTwTVZHCFrXwRg7+atT8CRbevK6FWrzmHNpIeTYX934y1lPLSWXltznEm/P8n5GDmg==",
+  "success": true,
+  "projectFilePath": "E:\\Training\\Alghoritms\\Alghoritms.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.11\\microsoft.netcore.app.ref.6.0.11.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.11\\microsoft.windowsdesktop.app.ref.6.0.11.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.11\\microsoft.aspnetcore.app.ref.6.0.11.nupkg.sha512",
+    "C:\\Users\\Artem\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.11\\microsoft.netcore.app.host.win-x64.6.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}
