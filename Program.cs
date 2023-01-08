@@ -4,10 +4,22 @@ namespace Alghoritms;
 class Program
 {   
     static List<int> testList = new List<int>();
+    static List<int> bufferList = new List<int>();
+    static List<int> sortedList = new List<int>();
     static void Main(string[] args)
     {
         testList = InitializeList(1000);
-        testList.Sort();
+        bufferList = new List<int>(testList);
+
+        Console.WriteLine("Alghoritms\n");
+
+        var watch = Stopwatch.StartNew();
+        sortedList = selectionSort(testList);
+        watch.Stop();
+        Console.WriteLine("\nTime spent to selection sort:" + watch.Elapsed);
+        testList = new List<int>(bufferList);
+
+        Console.ReadKey();
         ShowMenu();
         //var watch = Stopwatch.StartNew();
         
@@ -19,15 +31,19 @@ class Program
 
     public static void ShowMenu(){
         Console.Clear();
+        
         Console.WriteLine("Alghoritms\n");
-        Console.WriteLine("1. Binary search");
 
-        Console.Write("Выберите пункт списка / Select a list item ");
+        Console.WriteLine("\n1. Show original list");
+        Console.WriteLine("2. Show sorted list");
+        Console.WriteLine("3. Binary search");
+
+        Console.WriteLine("\nВыберите пункт списка / Select a list item ");
         char input = Console.ReadKey().KeyChar;
         Console.WriteLine();
         while(true){
-            if(input != '1'){
-                Console.Write("Выберите корректный пункт списка / Select a correct list item ");
+            if(input != '1' && input != '2' && input != '3'){
+                Console.WriteLine("Выберите корректный пункт списка / Select a correct list item ");
                 input = Console.ReadKey().KeyChar;
                 Console.WriteLine();
             } else {
@@ -36,54 +52,17 @@ class Program
         }
         switch(input){
             case '1':
-                ShowBinarySearch();
-                break;
-            // case '2':
-            //     ShowDoubleLinkedListMenu();
-            //     break;
-            // case '3':
-            //     ShowStackMenu();
-            //     break;
-            // case '4':
-            //     ShowQueueMenu();
-            //     break;
-            // case '5':
-            //     ShowSetMenu();
-            //     break;
-        }
-        Console.ReadKey();
-    }
-
-    public static void ShowBinarySearch(){
-        Console.Clear();
-        Console.WriteLine("Binary search");
-        Console.WriteLine();
-        Console.WriteLine("1. To the main menu");
-        Console.WriteLine("2. Search element");
-        Console.WriteLine();
-
-        Console.Write("Выберите пункт списка / Select a list item ");
-        char input = Console.ReadKey().KeyChar;
-        Console.WriteLine();
-        while(true){
-            if(input != '1' && input != '2'){
-                Console.Write("Выберите корректный пункт списка / Select a correct list item ");
-                input = Console.ReadKey().KeyChar;
-                Console.WriteLine();
-            } else {
-                break;
-            }
-        }
-
-        switch(input){
-            case '1':
-                ShowMenu();
-                break;
-            case '2':
                 for(int i = 0; i < testList.Count; i++){
                     Console.WriteLine(i + ". " + testList[i]);
                 }
-                Console.WriteLine("Введите значение элемента / Type value of element: ");
+                break;
+            case '2':
+                for(int i = 0; i < sortedList.Count; i++){
+                    Console.WriteLine(i + ". " + sortedList[i]);
+                }
+                break;
+            case '3':
+                Console.WriteLine("\nВведите значение элемента / Type value of element: ");
                 string data = Console.ReadLine();
                 int intData;
                 while(true){
@@ -96,14 +75,20 @@ class Program
                     }
                 }
                 var watch = Stopwatch.StartNew();
-                int result = BinarySearch(testList, intData);
+                int result = BinarySearch(sortedList, intData);
                 watch.Stop();
                 Console.WriteLine("\nYours element position: " + result);
-                Console.WriteLine("Time: " + watch.Elapsed);
+                Console.WriteLine("Spent time: " + watch.Elapsed);
                 break;
+            // case '4':
+            //     ShowQueueMenu();
+            //     break;
+            // case '5':
+            //     ShowSetMenu();
+            //     break;
         }
         Console.ReadKey();
-        ShowBinarySearch();
+        ShowMenu();
     }
 
     public static List<int> InitializeList(int n){
@@ -131,6 +116,29 @@ class Program
             else low = middle + 1;
         }
         return -1;
+    }
+
+    public static int FindSmallestElement(List<int> inputArray){
+        int smallest = inputArray[0];
+        int smallestIndex = 0;
+        for(int i = 1; i < inputArray.Count; i++){
+            if(smallest > inputArray[i]){
+                smallest = inputArray[i];
+                smallestIndex = i;
+            }
+        }
+        return smallestIndex;
+    }
+
+    public static List<int> selectionSort(List<int> inputArray){
+        List<int> resultArray = new List<int>();
+        int count = inputArray.Count;
+        for(int i = 0; i < count; i++){
+            int smallestIndex = FindSmallestElement(inputArray);
+            resultArray.Add(inputArray[smallestIndex]);
+            inputArray.RemoveAt(smallestIndex);
+        }
+        return resultArray;
     }
 
 }
