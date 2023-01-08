@@ -14,9 +14,15 @@ class Program
         Console.WriteLine("Alghoritms\n");
 
         var watch = Stopwatch.StartNew();
-        sortedList = selectionSort(testList);
+        sortedList = SelectionSort(testList);
         watch.Stop();
         Console.WriteLine("\nTime spent to selection sort:" + watch.Elapsed);
+        testList = new List<int>(bufferList);
+
+        watch = Stopwatch.StartNew();
+        sortedList = QuickSort(testList);
+        watch.Stop();
+        Console.WriteLine("\nTime spent to quick sort:" + watch.Elapsed);
         testList = new List<int>(bufferList);
 
         Console.ReadKey();
@@ -130,7 +136,7 @@ class Program
         return smallestIndex;
     }
 
-    public static List<int> selectionSort(List<int> inputArray){
+    public static List<int> SelectionSort(List<int> inputArray){
         List<int> resultArray = new List<int>();
         int count = inputArray.Count;
         for(int i = 0; i < count; i++){
@@ -141,5 +147,21 @@ class Program
         return resultArray;
     }
 
+    public static List<int> QuickSort(List<int> inputArray){
+        if(inputArray.Count < 2) return inputArray;
+        else{
+            int pivot = inputArray[0];
+            List<int> less = new List<int>();
+            List<int> greather = new List<int>();
+            for(int i = 1; i < inputArray.Count; i++){
+                if(inputArray[i] <= pivot) less.Add(inputArray[i]);
+                else greather.Add(inputArray[i]);
+            }
+            List<int> resultArray = QuickSort(less);
+            resultArray.Add(pivot);
+            resultArray.AddRange(QuickSort(greather));
+            return resultArray;
+        }
+    }
 }
 
